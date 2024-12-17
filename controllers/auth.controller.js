@@ -27,7 +27,7 @@ exports.loginAdmin = async (req, res) => {
         return res.status(401).json({ message: "invalid credentials password" })
 
     }
-    const token = jwt.sign({ _id: result._id }, process.env.jWT_SECRET)
+    const token = jwt.sign({ _id: result._id }, process.env.JWT_SECRET)
     res.cookie("admin", token, {
         maxAge: 10000 * 60 * 60 * 24,
         httpOnly: true,
